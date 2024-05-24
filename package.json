@@ -1,0 +1,23 @@
+{
+  "name": "aws-inventory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jeff Cooper <jcooper@verimatrix.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node ./src/index.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.12.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.583.0",
+    "@aws-sdk/client-ecs": "^3.583.0",
+    "@aws-sdk/client-elastic-load-balancing": "^3.583.0",
+    "@aws-sdk/client-elastic-load-balancing-v2": "^3.583.0",
+    "@aws-sdk/client-rds": "^3.583.0"
+  }
+}
