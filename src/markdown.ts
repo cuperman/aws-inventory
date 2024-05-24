@@ -33,10 +33,16 @@ export async function printMarkdown(resourceMap: GlobalResourceMap) {
           // entity
           if (networkInterface.Description && networkInterface.Association?.PublicIp) {
             console.log(
-              `    ${networkInterface.NetworkInterfaceId}["${networkInterface.Description}\n${networkInterface.Association.PublicIp}"]`
+              `    ${networkInterface.NetworkInterfaceId}["${networkInterface.Description}\n${networkInterface.NetworkInterfaceId}\n${networkInterface.Association.PublicIp}"]`
             );
           } else if (networkInterface.Description) {
-            console.log(`    ${networkInterface.NetworkInterfaceId}["${networkInterface.Description}"]`);
+            console.log(
+              `    ${networkInterface.NetworkInterfaceId}["${networkInterface.Description}\n${networkInterface.NetworkInterfaceId}"]`
+            );
+          } else if (networkInterface.Association?.PublicIp) {
+            console.log(
+              `    ${networkInterface.NetworkInterfaceId}["${networkInterface.NetworkInterfaceId}\n${networkInterface.Association?.PublicIp}"]`
+            );
           }
 
           // relationships
