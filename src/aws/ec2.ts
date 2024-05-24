@@ -78,3 +78,16 @@ export async function describeNetworkInterfaces(region: string): Promise<ec2.Net
 
   return networkInterfaces;
 }
+
+export async function describeVpcEndpoints(region: string) {
+  const client = new ec2.EC2Client({ region });
+  const paginator = ec2.paginateDescribeVpcEndpoints({ client }, {});
+
+  const vpcEndpoints: ec2.VpcEndpoint[] = [];
+
+  for await (const page of paginator) {
+    page.VpcEndpoints && vpcEndpoints.push(...page.VpcEndpoints);
+  }
+
+  return vpcEndpoints;
+}
